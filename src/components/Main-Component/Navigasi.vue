@@ -5,7 +5,7 @@
         <button type="button" class="btn p-0" v-on:click="push()">
           <router-link
             v-bind:to="'/Home/' + `${$route.params.outlet_id}`"
-            style="color: #FFF;"
+            style="color: #fff"
             class="mx-auto font18"
           >
             <div>
@@ -16,7 +16,7 @@
                 width="24"
                 height="24"
                 viewBox="0 0 172 172"
-                style=" fill:#000000;"
+                style="fill: #000000"
               >
                 <g
                   fill="none"
@@ -51,7 +51,7 @@
       <li>
         <router-link
           v-bind:to="'/categories/' + `${$route.params.outlet_id}`"
-          style="color: #FFF;"
+          style="color: #fff"
           class="mx-auto font18"
         >
           <div>
@@ -62,7 +62,7 @@
               width="32"
               height="32"
               viewBox="0 0 172 172"
-              style=" fill:#000000;"
+              style="fill: #000000"
             >
               <g
                 fill="none"
@@ -93,20 +93,19 @@
         </router-link>
       </li>
       <li>
-
-          <a :href="linkWa" target="_blank">
-            <div class="whatsapp-icon">
-              <img class="size-wa" src="../../assets/icon-wa v-2.png" />
-              <span class="menu-navigation"></span>
-            </div>
-          </a>
+        <a :href="linkWa" target="_blank">
+          <div class="whatsapp-icon">
+            <img class="size-wa" src="../../assets/icon-wa v-2.png" />
+            <span class="menu-navigation"></span>
+          </div>
+        </a>
       </li>
       <li>
         <router-link
           :to="{
-            path: '/QuarterDetails/1/' + `${$route.params.outlet_id}`,
+            path: '/MonthToYear/1' + `/${$route.params.outlet_id}`,
           }"
-          style="color: #FFF;"
+          style="color: #fff"
           class="mx-auto font18"
         >
           <div>
@@ -117,7 +116,7 @@
               width="24"
               height="24"
               viewBox="0 0 172 172"
-              style=" fill:#000000;"
+              style="fill: #000000"
             >
               <g
                 fill="none"
@@ -157,7 +156,7 @@
               width="24"
               height="24"
               viewBox="0 0 172 172"
-              style=" fill:#000000;"
+              style="fill: #000000"
             >
               <g
                 fill="none"
@@ -195,7 +194,7 @@
 let menuItems = document.querySelectorAll(".nav-bar ul li svg");
 
 // eslint-disable-next-line no-unused-vars
-const navItemClick = function(el) {
+const navItemClick = function (el) {
   let element = this;
 
   menuItems.forEach((item) => {
@@ -210,7 +209,7 @@ menuItems.forEach((item) => {
 });
 export default {
   methods: {
-    logout: function() {
+    logout: function () {
       localStorage.removeItem("token");
       this.$router.push("/");
     },
@@ -219,19 +218,22 @@ export default {
     // }
   },
   computed: {
-    linkWa() {
-      return `https://api.whatsapp.com/send?phone=${this.points.whatapps}`
-    },
+    // linkWa() {
+    //   return `https://api.whatsapp.com/send?phone=${this.points.whatapps}`;
+    // },
     points() {
       return this.$store.state.points;
     },
+    bulan() {
+      return localStorage.bulanAktive;
     },
+  },
   mounted() {
     this.$store.dispatch("getPoin", {
       outlet_id: this.$route.params.outlet_id,
       token: localStorage.token,
     });
-  }
+  },
 };
 </script>
 <style scoped>

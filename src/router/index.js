@@ -26,7 +26,6 @@ import TransactionRebate from "../pages/TransactionRebate.vue";
 import TransactionEwallet from "../pages/TransactionEwallet.vue";
 import TransactionPulsa from "../pages/TransactionPulsa.vue";
 import MonthToYear from "../pages/MonthToYear.vue";
-import MonthToMonth from "../pages/MonthToMonth.vue";
 import PromoDetails from "../pages/PromoDetails.vue";
 
 Vue.use(VueRouter);
@@ -108,17 +107,12 @@ const routes = [
     props: true,
   },
   {
-    path: "/MonthToYear/:outlet_id",
+    path: "/MonthToYear/:bulan/:outlet_id",
     component: MonthToYear,
     name: "MonthToYear",
     props: true,
   },
-  {
-    path: "/MonthToMonth/:bulan/:outlet_id",
-    component: MonthToMonth,
-    name: "MonthToMonth",
-    props: true,
-  },
+
   {
     path: "/QuarterDetails/:version/:outlet_id",
     component: QuarterDetails,

@@ -8,6 +8,8 @@ export function getProducts({ commit }, { outlet_id, token }) {
     .get(`${process.env.VUE_APP_URL}list-produk-hadiah`, {
       params: {
         outlet_id,
+      },
+      headers: {
         token,
       },
     })
@@ -24,6 +26,8 @@ export function getPoin({ commit }, { outlet_id, token }) {
     .get(`${process.env.VUE_APP_URL}status-poin-rebate`, {
       params: {
         outlet_id,
+      },
+      headers: {
         token,
       },
     })
@@ -62,6 +66,8 @@ export function getPoinCashs({ commit }, { outlet_id, token }) {
     .get(`${process.env.VUE_APP_URL}list-pointocash-hadiah`, {
       params: {
         outlet_id,
+      },
+      headers: {
         token,
       },
     })
@@ -76,6 +82,8 @@ export function getRebates({ commit }, { outlet_id, token }) {
     .get(`${process.env.VUE_APP_URL}list-rebate-hadiah`, {
       params: {
         outlet_id,
+      },
+      headers: {
         token,
       },
     })
@@ -102,8 +110,6 @@ export function checkOutCartItems({ commit }, { outlet_id, token }) {
     .get(`${process.env.VUE_APP_URL}post-produk-hadiah`, {
       headers: {
         "content-type": "application/json",
-      },
-      params: {
         token,
       },
     })
@@ -189,14 +195,18 @@ export function checkOutCart({ state }, { outlet_id, token }) {
 
   console.log(data);
   axios.post(`${process.env.VUE_APP_URL}post-produk-hadiah`, data, {
-    params: {
-      token,
-    },
     headers: {
+      token,
       "content-type": "application/json",
     },
   });
-  return (state.cartEwallet = [],state.cart = [],state.cartRebate = [],state.cartPoincash = [],state.cartPulsa = []);
+  return (
+    (state.cartEwallet = []),
+    (state.cart = []),
+    (state.cartRebate = []),
+    (state.cartPoincash = []),
+    (state.cartPulsa = [])
+  );
 }
 
 export function checkOutRebate({ state }, { outlet_id, token }) {
@@ -210,14 +220,18 @@ export function checkOutRebate({ state }, { outlet_id, token }) {
 
   console.log(data);
   axios.post(`${process.env.VUE_APP_URL}post-rebate-hadiah`, data, {
-    params: {
-      token,
-    },
     headers: {
       "content-type": "application/json",
+      token,
     },
   });
-  return (state.cartEwallet = [],state.cart = [],state.cartRebate = [],state.cartPoincash = [],state.cartPulsa = []);
+  return (
+    (state.cartEwallet = []),
+    (state.cart = []),
+    (state.cartRebate = []),
+    (state.cartPoincash = []),
+    (state.cartPulsa = [])
+  );
 }
 
 export function checkOutPoinCash({ state }, { outlet_id, token }) {
@@ -231,14 +245,18 @@ export function checkOutPoinCash({ state }, { outlet_id, token }) {
 
   console.log(data);
   axios.post(`${process.env.VUE_APP_URL}post-pointocash-hadiah`, data, {
-    params: {
-      token,
-    },
     headers: {
+      token,
       "content-type": "application/json",
     },
   });
-  return (state.cartEwallet = [],state.cart = [],state.cartRebate = [],state.cartPoincash = [],state.cartPulsa = []);
+  return (
+    (state.cartEwallet = []),
+    (state.cart = []),
+    (state.cartRebate = []),
+    (state.cartPoincash = []),
+    (state.cartPulsa = [])
+  );
 }
 
 export function checkOutPulsa({ state }, { outlet_id, token }) {
@@ -252,14 +270,18 @@ export function checkOutPulsa({ state }, { outlet_id, token }) {
 
   console.log(data);
   axios.post(`${process.env.VUE_APP_URL}post-pulsa-hadiah`, data, {
-    params: {
-      token,
-    },
     headers: {
+      token,
       "content-type": "application/json",
     },
   });
-  return (state.cartEwallet = [],state.cart = [],state.cartRebate = [],state.cartPoincash = [],state.cartPulsa = []);
+  return (
+    (state.cartEwallet = []),
+    (state.cart = []),
+    (state.cartRebate = []),
+    (state.cartPoincash = []),
+    (state.cartPulsa = [])
+  );
 }
 
 export function checkOutEwallet({ state }, { outlet_id, token }) {
@@ -273,14 +295,18 @@ export function checkOutEwallet({ state }, { outlet_id, token }) {
 
   console.log(data);
   axios.post(`${process.env.VUE_APP_URL}post-ewallet-hadiah`, data, {
-    params: {
-      token,
-    },
     headers: {
+      token,
       "content-type": "application/json",
     },
   });
-  return (state.cartEwallet = [],state.cart = [],state.cartRebate = [],state.cartPoincash = [],state.cartPulsa = []);
+  return (
+    (state.cartEwallet = []),
+    (state.cart = []),
+    (state.cartRebate = []),
+    (state.cartPoincash = []),
+    (state.cartPulsa = [])
+  );
 }
 
 export function addEwalletToCartw({ commit }, { ewallet, quantity }) {
@@ -372,4 +398,23 @@ export function removeEwalletFromCart({ commit }) {
 export function clearCartItems({ commit }) {
   commit("CLEAR_CART_ITEMS");
   axios.delete("http://shayna-backend.belajarkoding.com/api/cart");
+}
+
+export function getDataSalesman({ commit }, { outlet_id, token, thisBulan }) {
+  axios
+    .get(`${process.env.VUE_APP_URL}dashboard-outlet-mtm`, {
+      headers: {
+        token: localStorage.token,
+      },
+      params: {
+        outlet_id: outlet_id,
+        bulan: thisBulan,
+      },
+    })
+    .then((response) => {
+      commit("GET_DATA_SALESMAN", response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }

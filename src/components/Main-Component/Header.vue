@@ -5,7 +5,7 @@
       v-if="contentFor === 'categories'"
     >
       <img
-        class=" img-Hero"
+        class="img-Hero"
         src="../../assets/Hero-Banner.png"
         alt="Card image"
       />
@@ -16,7 +16,7 @@
             Tukar Poin anda,
             <br />dengan list reward dibawah ini
           </p>
-          <h1 style="width:43px;  border: 2px #e8e8e8 solid;"></h1>
+          <h1 style="width: 43px; border: 2px #e8e8e8 solid"></h1>
         </div>
       </div>
     </div>
@@ -24,11 +24,7 @@
       class="card text-white justify-content-center"
       v-if="contentFor === 'home'"
     >
-      <img
-        class=" img-Hero"
-        src="../../assets/Header-new.png"
-        alt="Card image"
-      />
+      <img class="img-Hero" src="../../assets/Header-pz.svg" alt="Card image" />
       <div class="card-img-overlay d-flex align-items-center">
         <div class="col mb-4">
           <h1
@@ -46,12 +42,6 @@
               {{ outlet_point }} Poin
             </p>
           </div>
-          <div class="d-flex mt-2" data-aos="zoom-in">
-            <img class="img-logo" src="../../assets/rebate-logo.png" alt="" />
-            <p class="font18 align-self-center mb-0 px-2">
-              Rp. {{ outlet_rebate }}
-            </p>
-          </div>
         </div>
       </div>
     </div>
@@ -60,7 +50,7 @@
       v-if="contentFor === 'QuarterDetails'"
     >
       <img
-        class=" img-Hero"
+        class="img-Hero"
         src="../../assets/Header-new.png"
         alt="Card image"
       />
@@ -85,7 +75,7 @@
           <img
             src="../../assets/hero-login.png"
             class="img-fluid"
-            style="max-width:100;"
+            style="max-width: 100"
           />
         </div>
       </div>

@@ -36,6 +36,8 @@ export default {
         .get(`${process.env.VUE_APP_URL}status-poin-rebate`, {
           params: {
             outlet_id: this.$route.params.outlet_id,
+          },
+          headers: {
             token: localStorage.token,
           },
         })

@@ -26,6 +26,7 @@ export default {
           let result = response.data;
           if (result.api_status === 1) {
             localStorage.token = result.token;
+            localStorage.bulanAktive = result.bulan_active;
             this.$router.push(`Home/${username}`);
           } else {
             console.log(alert("user Id dan password anda salah"));

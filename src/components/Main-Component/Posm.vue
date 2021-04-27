@@ -4,7 +4,7 @@
       <img
         class="mr-4"
         src="https://i.imgur.com/myZDp6l.png"
-        style="width:3.5em !important;height:3.5em !important;"
+        style="width: 3.5em !important; height: 3.5em !important"
       />
       <div>
         <h2 class="font18 font-weight-bold mb-0">Data Registrasi</h2>
@@ -21,15 +21,15 @@
       <form action class="mb-5 pb-5" @submit="formSubmit">
         <p
           v-if="errors.length"
-          style="color:black!important; "
+          style="color: black !important"
           class="text-left"
         >
-          <b style="color:red">Tolong Isi Kolom berikut ini :</b>
+          <b style="color: red">Tolong Isi Kolom berikut ini :</b>
         </p>
         <ul class="text-left px-3">
           <li
             class="text-left"
-            style="color:red"
+            style="color: red"
             v-for="error in errors"
             v-bind:key="error"
           >
@@ -213,6 +213,8 @@ export default {
         .get(`${process.env.VUE_APP_URL}cek-posm`, {
           params: {
             outlet_id: this.$route.params.outlet_id,
+          },
+          headers: {
             token: localStorage.token,
           },
         })
@@ -221,11 +223,11 @@ export default {
         })
         .catch((err) => console.log(err));
     },
-    setImage: function(file) {
+    setImage: function (file) {
       this.hasImage = true;
       this.file = file;
     },
-    setImage2: function(file2) {
+    setImage2: function (file2) {
       this.hasImage2 = true;
       this.file2 = file2;
     },

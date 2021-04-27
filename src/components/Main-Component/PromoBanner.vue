@@ -1,7 +1,11 @@
 <template>
   <div class="col-md-12 col-12 p-0 mt-3">
     <div class="d-flex flex-row ml-3 mb-3">
-      <img class="w-icon" :src="require('../../assets/' + icon)" alt />
+      <img
+        class="w-icon"
+        src="../../assets/COG-LOGO-Joss_Retail_salesman.png"
+        alt
+      />
       <div class="d-flex align-items-center">
         <div class="d-flex flex-column">
           <h3 class="font16 ml-1 my-0 font-weight-bold">Promo</h3>
@@ -43,17 +47,17 @@
 </template>
 
 <script>
-import VueSlickCarousel from 'vue-slick-carousel'
+import VueSlickCarousel from "vue-slick-carousel";
 // optional style for arrows & dots
-import 'vue-slick-carousel/dist/vue-slick-carousel.css'
-import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
   components: {
-    VueSlickCarousel
+    VueSlickCarousel,
   },
-  name: 'PromoBanner',
-  props: ['slider', 'icon'],
-  data () {
+  name: "PromoBanner",
+  props: ["slider", "icon"],
+  data() {
     return {
       settings: {
         arrows: false,
@@ -64,19 +68,19 @@ export default {
         autoplay: true,
         speed: 1000,
         autoplaySpeed: 4000,
-        cssEase: 'linear'
-      }
-    }
+        cssEase: "linear",
+      },
+    };
   },
   methods: {
-    details (index) {
+    details(index) {
       this.$router.push(
         `/PromoDetails/${this.$route.params.outlet_id}/` + index
-      )
-      console.log(index)
-    }
-  }
-}
+      );
+      console.log(index);
+    },
+  },
+};
 </script>
 
 <style scoped>

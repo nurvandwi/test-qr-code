@@ -16,4 +16,6 @@ export default {
   cartPoincash: [],
   cartRebate: [],
   cartPulsa: [],
+
+  tables: [],
 };

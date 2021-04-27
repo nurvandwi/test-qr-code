@@ -8,19 +8,19 @@ export const SET_POIN = (state, points) => {
   console.log(points);
 };
 export const RESET_CART = (state) => {
-  state.cart= [];
+  state.cart = [];
 };
 export const RESET_EWALLET = (state) => {
-  state.cartEwallet= [];
+  state.cartEwallet = [];
 };
 export const RESET_CARTPOINCASH = (state) => {
-  state.cartPoincash= [];
+  state.cartPoincash = [];
 };
 export const RESET_CARTREBATE = (state) => {
-  state.cartRebate= [];
+  state.cartRebate = [];
 };
 export const RESET_CARTPULSA = (state) => {
-  state.cartPulsa= [];
+  state.cartPulsa = [];
 };
 export const SET_EWALLETS = (state, ewallets) => {
   state.ewallets = ewallets;
@@ -208,4 +208,8 @@ export const REMOVE_EWALLET_FROM_CART = (state) => {
 };
 export const CLEAR_CART_ITEMS = (state) => {
   state.cart = [];
+};
+
+export const GET_DATA_SALESMAN = (state, tables) => {
+  state.tables = tables;
 };

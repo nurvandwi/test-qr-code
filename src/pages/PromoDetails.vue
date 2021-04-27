@@ -20,32 +20,34 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
-  data () {
+  data() {
     return {
-      Slider: {}
-    }
+      Slider: {},
+    };
   },
 
   methods: {
-    getSlider () {
+    getSlider() {
       axios
         .get(`${process.env.VUE_APP_URL}banner`, {
           params: {
             outlet_id: this.$route.params.outlet_id,
-            token: localStorage.token
-          }
+          },
+          headers: {
+            token: localStorage.token,
+          },
         })
-        .then(res => (this.Slider = res.data))
-        .catch(err => console.log(err))
-    }
+        .then((res) => (this.Slider = res.data))
+        .catch((err) => console.log(err));
+    },
   },
 
-  mounted () {
-    this.getSlider()
-  }
-}
+  mounted() {
+    this.getSlider();
+  },
+};
 </script>
 
 <style scoped>

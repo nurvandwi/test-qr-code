@@ -1,95 +1,96 @@
 <template>
   <div>
-    <Header
-      :contentFor="'home'"
-      :outlet_name="OutletData.outlet_name"
-      :outlet_point="points.Poin_text"
-      :outlet_rebate="OutletData.Rebate_text"
-    />
-    <PromoBanner :slider="Slider" :icon="OutletData.icon" />
-    <ListPromosi :contentFor="'home'" :status="OutletData.status_registrasi" :status_mbd="points.program_mbd" :status_sell="points.program_promo_sell_out"  />
+    <Header :contentFor="'home'" />
+    <PromoBanner :slider="Slider" />
+    <ListPromosi :contentFor="'home'" />
     <ListTransaksi class="mb-5 pb-5" />
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-import Header from '../components/Main-Component/Header.vue'
-import PromoBanner from '../components/Main-Component/PromoBanner.vue'
-import ListTransaksi from '../components/Main-Component/ListTransaksi'
-import ListPromosi from '../components/Main-Component/ListPromosi.vue'
+import axios from "axios";
+import Header from "../components/Main-Component/Header.vue";
+import PromoBanner from "../components/Main-Component/PromoBanner.vue";
+import ListTransaksi from "../components/Main-Component/ListTransaksi";
+import ListPromosi from "../components/Main-Component/ListPromosi.vue";
 
 export default {
   components: {
     Header,
     PromoBanner,
     ListPromosi,
-    ListTransaksi
+    ListTransaksi,
   },
-  data () {
+  data() {
     return {
       OutletData: {
-        data: []
+        data: [],
       },
       AllTransaction: {
-        data: []
+        data: [],
       },
       Slider: {
-        data: []
-      }
-    }
+        data: [],
+      },
+    };
   },
-  mounted () {
-    this.getOutlet()
-    this.getAllTransaction()
-    this.getSlider()
-    this.$store.dispatch('getPoin', {
+  mounted() {
+    this.getOutlet();
+    this.getAllTransaction();
+    this.getSlider();
+    this.$store.dispatch("getPoin", {
       outlet_id: this.$route.params.outlet_id,
-      token: localStorage.token
-    })
+      token: localStorage.token,
+    });
   },
   methods: {
-    getSlider () {
+    getSlider() {
       axios
 
         .get(`${process.env.VUE_APP_URL}banner`, {
           params: {
             outlet_id: this.$route.params.outlet_id,
-            token: localStorage.token
-          }
+          },
+          headers: {
+            token: localStorage.token,
+          },
         })
-        .then(res => (this.Slider = res.data))
-        .catch(err => console.log(err))
+        .then((res) => (this.Slider = res.data))
+        .catch((err) => console.log(err));
     },
-    getOutlet () {
+    getOutlet() {
       axios
         .get(`${process.env.VUE_APP_URL}status-poin-rebate`, {
           params: {
             outlet_id: this.$route.params.outlet_id,
-            token: localStorage.token
-          }
+          },
+          headers: {
+            token: localStorage.token,
+          },
         })
-        .then(res => (this.OutletData = res.data.data))
-        .catch(err => console.log(err))
+        .then((res) => (this.OutletData = res.data.data))
+        .catch((err) => console.log(err));
     },
-    getAllTransaction () {
+    getAllTransaction() {
       axios
         .get(`${process.env.VUE_APP_URL}view_transaksi`, {
           params: {
             outlet_id: this.$route.params.outlet_id,
-            token: localStorage.token
-          }
+          },
+          headers: {
+            token: localStorage.token,
+          },
         })
-        .then(res => (this.AllTransaction = res.data))
-        .catch(err => console.log(err))
-    }
+        .then((res) => (this.AllTransaction = res.data))
+        .catch((err) => console.log(err));
+    },
   },
   computed: {
-    points () {
-      return this.$store.state.points
-    }
-  }
-}
+    points() {
+      return this.$store.state.points;
+    },
+  },
+};
 </script>
 
 <style></style>

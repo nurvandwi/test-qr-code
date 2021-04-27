@@ -1,9 +1,9 @@
 <template>
-  <div class=" mt-5 pt-0 ">
+  <div class="mt-5 pt-0">
     <div
       class="col-12 align-self-center font14 bg-blue d-flex justify-content-between font-weight-bold"
     >
-      <h3 class="font14  m-0 align-self-center font-weight-bold py-0 px-2">
+      <h3 class="font14 m-0 align-self-center font-weight-bold py-0 px-2">
         List Transaksi
       </h3>
       <router-link
@@ -11,7 +11,7 @@
         :to="'/TransactionProduct/' + `${$route.params.outlet_id}`"
       >
         <h3
-          class="rounded-pill  m-0 font14 py-2 px-3 font-weight-bold  bg-purple"
+          class="rounded-pill m-0 font14 py-2 px-3 font-weight-bold bg-purple"
         >
           Lihat Semua
         </h3>
@@ -40,6 +40,8 @@ export default {
         .get(`${process.env.VUE_APP_URL}view_transaksi`, {
           params: {
             outlet_id: this.$route.params.outlet_id,
+          },
+          headers: {
             token: localStorage.token,
           },
         })

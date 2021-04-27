@@ -26,17 +26,24 @@ export default {
       detailTransaksi: [],
     };
   },
+  methods: {
+    getDetatails() {
+      axios
+        .get(`${process.env.VUE_APP_URL}detail-transaksi`, {
+          params: {
+            outlet_id: this.$route.params.outlet_id,
+            kode_transaksi: this.$route.params.kode_transaksi,
+          },
+          headers: {
+            token: localStorage.token,
+          },
+        })
+        .then((res) => (this.detailTransaksi = res.data))
+        .catch((err) => console.log(err));
+    },
+  },
   mounted() {
-    axios
-      .get(`${process.env.VUE_APP_URL}detail-transaksi`, {
-        params: {
-          outlet_id: this.$route.params.outlet_id,
-          kode_transaksi: this.$route.params.kode_transaksi,
-          token: localStorage.token,
-        },
-      })
-      .then((res) => (this.detailTransaksi = res.data))
-      .catch((err) => console.log(err));
+    this.getDetatails();
   },
 };
 </script>

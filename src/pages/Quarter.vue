@@ -80,10 +80,10 @@ export default {
         .get(`${process.env.VUE_APP_URL}dashboard-outlet`, {
           headers: {
             version: this.$route.params.version,
+            token: localStorage.token,
           },
           params: {
             txtKodeOutlet: this.$route.params.outlet_id,
-            token: localStorage.token,
           },
         })
 
@@ -95,6 +95,8 @@ export default {
         .get(`${process.env.VUE_APP_URL}dashboard-outlet-mty`, {
           params: {
             txtKodeOutlet: this.$route.params.outlet_id,
+          },
+          headers: {
             token: localStorage.token,
           },
         })

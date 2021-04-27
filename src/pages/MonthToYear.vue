@@ -1,67 +1,31 @@
 <template>
-  <div class="container">
-    <Quarter
-      :contentFor="'MonthToYear'"
-      :sisa_point="year.sisa_point"
-      :nama_outlet="year.outlet_name"
-      :id_outlet="year.outlet_id"
-      :saldo_rebate="year.saldo_rebate"
+  <div>
+    <Navbar
+      :distributor_name="tables.distributor_name"
+      :outlet_id="tables.outlet_id"
+      :poin_tersedia="tables.poin_tersedia"
     />
-    <DetailPenjualan
-      :contentFor="'MonthToYear'"
-      title="PENJUALAN YEAR TO MONTH"
-      class="mt-custom"
-      :historikal="year.total_historikal_penjualan"
-      :aktual="year.total_aktual_penjualan"
-      :selisih_penjualan="year.total_selisih_penjualan"
-      :target_penjualan="year.total_target_penjualan"
-      :ratio="year.total_ratio_pencapaian"
-    />
-    <Poin
-      :contentFor="'MonthToYear'"
-      :poin_carry_over="year.poin_carry_over"
-      :perolehan="year.total_perolehan"
-      :poin_tersedia="year.total_poin_tersedia"
-      :penukaran_poin="year.total_penukaran_poin"
-      :sisa_poin="year.sisa_point"
-      title="POIN YEAR TO MONTH"
-      class="mt-3"
-    />
-    <Tarif
-      :contentFor="'MonthToYear'"
-      :rebate_medio="year.total_rebate_medio"
-      :rebate_bulanan="year.total_rebate_bulanan"
-      :tarif_medio="year.tarif_rebate_medio"
-      :tarif_bulanan="year.tarif_rebate"
-      :transfer_rebate="year.total_transfer_rebate"
-      :total_rebate="year.total_rebate"
-      :tarif_rebate_quarter="year.tarif_rebate_quarter"
-      :rebate_quarter="year.total_rebate_quarter"
-      :saldo_rebate="year.saldo_rebate"
-      title
-      class="mt-3"
-    />
-    <BulanTransaksi :contentFor="'MonthToYear'" :statusPoints="points" />
-    <div></div>
+    <div>
+      <SliderMonth :bulan="tables.bulan" />
+    </div>
+    <div class="container">
+      <Tables :tables="tables" />
+    </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
-import Quarter from "@/components/Quarter/Quarter.vue";
-import DetailPenjualan from "@/components/Quarter/DetailPenjualan.vue";
-import Poin from "@/components/Quarter/Poin.vue";
-import BulanTransaksi from "@/components/Quarter/BulanTransaksi.vue";
-import Tarif from "@/components/Quarter/Tarif.vue";
+import Navbar from "../components/Month-To-Month-OutletFY/Navbar";
+import SliderMonth from "../components/Month-To-Month-OutletFY/SliderMonth";
 
+import Tables from "../components/Month-To-Month-OutletFY/Tables";
 export default {
   components: {
-    Quarter,
-    DetailPenjualan,
-    Poin,
-    BulanTransaksi,
-    Tarif,
+    Navbar,
+    SliderMonth,
+    Tables,
   },
+  props: ["title"],
   data() {
     return {
       year: {
@@ -70,34 +34,23 @@ export default {
     };
   },
   methods: {
-    normalize(badNumeric) {
-      return Number(badNumeric.split(",").join(""));
-    },
-
-    monthToYear() {
-      axios
-        .get(`${process.env.VUE_APP_URL}dashboard-outlet-mty`, {
-          params: {
-            txtKodeOutlet: this.$route.params.outlet_id,
-            token: localStorage.token,
-          },
-        })
-
-        .then((res) => (this.year = res.data))
-        .catch((err) => console.log(err));
+    salesmans() {
+      this.$store.dispatch("getDataSalesman", {
+        outlet_id: this.$route.params.outlet_id,
+        thisBulan: this.$route.params.bulan,
+      });
     },
   },
   mounted() {
-    this.monthToYear();
-    this.$store.dispatch("getPoin", {
-      outlet_id: this.$route.params.outlet_id,
-      token: localStorage.token,
-    });
+    this.salesmans();
   },
   computed: {
-    points() {
-      return this.$store.state.points;
+    tables() {
+      return this.$store.state.tables;
     },
+  },
+  watch: {
+    $route: "salesmans",
   },
 };
 </script>
