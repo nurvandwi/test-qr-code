@@ -9,8 +9,8 @@
           srcset=""
         />
         <div class="align-self-center mx-3">
-          <p class="card-text text-white m-0">{{ outlet_id }}</p>
-          <p class="card-text text-white font-weight-bold">
+          <p class="card-text text-white m-0 font30">{{ outlet_id }}</p>
+          <p class="card-text text-white font14">
             {{ distributor_name }}
           </p>
         </div>
@@ -64,6 +64,14 @@ export default {
 
 .font23 {
   font-size: 23px;
+}
+
+.font30 {
+  font-size: 30px;
+}
+
+.font14 {
+  font-size: 14px;
 }
 
 .font18 {

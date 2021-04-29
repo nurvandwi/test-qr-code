@@ -22,19 +22,20 @@
               <h2 class="font12 text-gray font-custom">POIN PENUKARAN</h2>
             </div>
           </div>
-          <div class="row text-center border-bottom">
+          <div class="row text-center">
             <div class="col">
-              <h2 class="font16 text-black font-weight-bolder">
+              <h2 class="font18 text-black font-weight-bolder">
                 {{ table.poin_perolehan }}
               </h2>
             </div>
             <div style="border-right: 1px solid #d3d3d3; height: 18px"></div>
             <div class="col">
-              <h2 class="font16 text-black font-weight-bolder">
+              <h2 class="font18 text-black font-weight-bolder">
                 {{ table.poin_penukaran }}
               </h2>
             </div>
           </div>
+          <hr />
           <div class="row text-center pt-2">
             <div class="col" style="border-right: 1px solid #d3d3d3">
               <h2 class="font11 m-0 text-gray font-custom">
@@ -42,7 +43,7 @@
               </h2>
             </div>
             <div class="col">
-              <h2 class="font16 m-0 text-black font-weight-bolder">
+              <h2 class="font18 m-0 text-black font-weight-bolder">
                 {{ table.sisa_poin_tersedia }}
               </h2>
             </div>
@@ -72,20 +73,21 @@
               <h2 class="font12 text-gray font-custom">AKTUAL PENJUALAN</h2>
             </div>
           </div>
-          <div class="row text-center border-bottom">
+          <div class="row text-center">
             <div class="col">
-              <h2 class="font12 text-black font-weight-bolder">
+              <h2 class="font18 text-black font-weight-bolder">
                 <!-- eslint-disable  -->
                 {{ table.rata_rata_nasional }}
               </h2>
             </div>
             <div style="border-right: 1px solid #d3d3d3; height: 18px"></div>
             <div class="col">
-              <h2 class="font16 text-black font-weight-bolder">
+              <h2 class="font18 text-black font-weight-bolder">
                 {{ table.aktual_penjualan }}
               </h2>
             </div>
           </div>
+          <hr />
           <div class="row text-center pt-2">
             <div class="col">
               <h2 class="font12 text-gray font-custom">POIN REWARD</h2>
@@ -97,13 +99,13 @@
           </div>
           <div class="row text-center">
             <div class="col">
-              <h2 class="font16 text-black font-weight-bolder">
+              <h2 class="font18 text-black font-weight-bolder">
                 {{ table.point_reward }}
               </h2>
             </div>
             <div style="border-right: 1px solid #d3d3d3; height: 18px"></div>
             <div class="col">
-              <h2 class="font16 text-black font-weight-bolder">
+              <h2 class="font18 text-black font-weight-bolder">
                 {{ table.pencapaian }}%
               </h2>
             </div>
@@ -123,6 +125,11 @@ export default {
 <style scoped>
 .text-ungu {
   color: #41009a;
+}
+
+hr {
+  margin: 0 0 0.6rem 0;
+  border-top: 0.5px solid #d3d3d3;
 }
 
 .bg-grey {

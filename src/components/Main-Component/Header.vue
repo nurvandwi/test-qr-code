@@ -31,7 +31,7 @@
             class="card-title font18 font-weight-bolder mb-0"
             data-aos="fade-down"
           >
-            Hai, {{ outlet_name }}
+            Hai, {{ points.outlet_name }}
           </h1>
           <p class="mb-0 font12px font-weight-normal" data-aos="fade-down">
             Ini Jumlah Poin dan Rebate anda.
@@ -39,7 +39,7 @@
           <div class="d-flex mt-4" data-aos="zoom-in">
             <img class="img-logo" src="../../assets/poin-logo.png" alt="" />
             <p class="font18 align-self-center mb-0 px-2">
-              {{ outlet_point }} Poin
+              {{ points.Poin_text }} Poin
             </p>
           </div>
         </div>
@@ -86,7 +86,7 @@
 <script>
 export default {
   name: "Header",
-  props: ["contentFor", "outlet_name", "outlet_point", "outlet_rebate"],
+  props: ["contentFor", "points"],
 };
 </script>
 

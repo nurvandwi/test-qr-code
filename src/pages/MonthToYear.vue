@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar
-      :distributor_name="tables.distributor_name"
+      :distributor_name="tables.outlet_name"
       :outlet_id="tables.outlet_id"
       :poin_tersedia="tables.poin_tersedia"
     />

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Header :contentFor="'home'" />
+    <Header :contentFor="'home'" :points="points" />
     <PromoBanner :slider="Slider" />
-    <ListPromosi :contentFor="'home'" />
+    <ListPromosi :contentFor="'home'" :outletData="OutletData" />
     <ListTransaksi class="mb-5 pb-5" />
   </div>
 </template>
