@@ -34,7 +34,7 @@
           </div>
         </router-link>
       </div>
-      <div class="col-12" v-if="status_sell !== 0">
+      <div class="col-12" v-if="outletData.program_promo_sell_out !== 0">
         <a href="https://mvpromosi2021.inosis.biz/" target="_blank">
           <div
             style="background-color: white"
@@ -55,7 +55,8 @@
           </div>
         </a>
       </div>
-      <div class="col-12" v-if="status_mbd !== 0">
+
+      <div class="col-12" v-if="outletData.program_mbd !== 0">
         <a href="http://mbdoutlet2021.inosis.biz/">
           <div
             style="background-color: white"
@@ -120,7 +121,7 @@
 /* eslint-disable */
 
 export default {
-  props: ["contentFor", "status", "status_mbd", "status_sell"],
+  props: ["contentFor", "outletData"],
   data() {
     return {
       currenttime: "",

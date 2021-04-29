@@ -12,11 +12,15 @@
       </div>
     </div>
     <div class="col-md-12 col-12 p-0 m-0">
-      <div class="theme-color p-2 rounded mt-2">
+      <div class="theme-color p-2 rounded mt-2 d-block">
         <h3 class="font18 mb-0 pb-0 text-white text-center">
           {{ this.$route.params.outlet_id }}
         </h3>
+        <h3 class="font18 mb-0 pb-0 text-white text-center">
+          {{ data_outlet.data.outlet_name }}
+        </h3>
       </div>
+
       <h4 class="mt-4 text-left font16 font-weight-bold mb-0">
         Input Data Outlet
       </h4>
@@ -157,7 +161,9 @@
                 class="col-md-12 col-12"
                 v-model="data_outlet.data.telepon2"
               />
-              <span class="placeholder">No.HP</span>
+              <span class="placeholder"
+                >No.HP / no. WA harus sama dengan nomor e-Wallet</span
+              >
             </label>
           </div>
 
@@ -273,7 +279,7 @@
             </select>
           </div>
 
-          <div class="form-group col-md-12 col-12 text-left p-0 mb-4">
+          <div class="form-group col-md-12 col-12 text-left p-0 mb-custom">
             <select
               class="form-control"
               v-model="state.kelurahan"
@@ -294,7 +300,7 @@
             </select>
           </div>
 
-          <div
+          <!-- <div
             v-bind:class="[
               'form-group justify-content-center grid-image   mb-3 p-0 col-md-12 col-12',
               { cameraform: data_outlet.data.file == null },
@@ -344,8 +350,8 @@
                 />
               </div>
             </div>
-          </div>
-          <h4 class="text-dark mt-3 font16 px-0 mb-3">
+          </div> -->
+          <!-- <h4 class="text-dark mt-3 font16 px-0 mb-3">
             <strong>Informasi Rekening Bank</strong>
           </h4>
 
@@ -388,7 +394,7 @@
               <input type="text" required class="col-md-12 col-12" disabled />
               <span class="placeholder">Kota Bank</span>
             </label>
-          </div>
+          </div> -->
           <!-- <div class="disabled">
             <div class="disabled">
               <image-uploader
@@ -426,7 +432,7 @@
               </image-uploader>
             </div>
           </div> -->
-          <div class="d-flex justify-content-center mx-auto disabled">
+          <!-- <div class="d-flex justify-content-center mx-auto disabled">
             <img class="w-100 h-100 p-0 m-0" alt />
           </div>
           <div class="cameraform col-md-12 col-12 py-3 disabled">
@@ -448,14 +454,17 @@
               class="upload-caption d-flex text-dark justify-content-center"
               >{{ hasImage2 ? "Replace" : "Upload Buku Bank" }}</span
             >
-          </div>
+          </div> -->
         </div>
-        <button
-          type="submit"
-          class="btn btn-lg col-md-12 col-12 mt-2 mb-submit py-2 btn-theme font-button px-0"
-        >
-          Submit
-        </button>
+        <div class="btn_fixed">
+          <button
+            type="submit"
+            class="btn btn-lg col-md-12 col-12 mt-2 text-white py-2 theme-color font-button px-0"
+            style="border-radius: 60px"
+          >
+            Kirim
+          </button>
+        </div>
       </form>
     </div>
   </div>
@@ -463,13 +472,11 @@
 
 <script>
 import axios from "axios";
-import ImageUploader from "vue-image-upload-resize";
+// import ImageUploader from "vue-image-upload-resize";
 
 export default {
   name: "Registrasi",
-  components: {
-    ImageUploader,
-  },
+  components: {},
   data() {
     return {
       state: {
@@ -573,9 +580,7 @@ export default {
 
     formSubmit(e) {
       let formData = new FormData();
-      if (this.file != null) {
-        formData.append("file", this.file);
-      }
+
       formData.append("outlet_id", this.data_outlet.data.outlet_id);
       formData.append("no_ektp", this.data_outlet.data.no_ektp);
       formData.append("no_npwp", this.data_outlet.data.no_npwp);
@@ -624,10 +629,6 @@ export default {
         this.errors.push("Kodepos");
       }
 
-      if (this.file != null && this.data_outlet.data.file != null) {
-        this.errors.push("Foto Ktp");
-      }
-
       e.preventDefault();
       if (
         this.data_outlet.data.outlet_id &&
@@ -642,20 +643,18 @@ export default {
         this.state.provinsi &&
         this.data_outlet.data.kodepos
       )
-        if (this.file != null || this.data_outlet.data.file != null) {
-          axios
-            .post(`${process.env.VUE_APP_URL}update-outlet-ms`, formData, {
-              headers: {
-                token: localStorage.token,
-              },
-            })
-            .then((res) => {
-              console.log(res.data);
-              this.$router.push(`/Home/${this.$route.params.outlet_id}`);
-              window.location.reload();
-            })
-            .catch((err) => console.log(err));
-        }
+        axios
+          .post(`${process.env.VUE_APP_URL}update-outlet-ms`, formData, {
+            headers: {
+              token: localStorage.token,
+            },
+          })
+          .then((res) => {
+            console.log(res.data);
+            this.$router.push(`/Home/${this.$route.params.outlet_id}`);
+            window.location.reload();
+          })
+          .catch((err) => console.log(err));
     },
   },
   mounted() {
@@ -668,7 +667,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 input:valid + .placeholder {
   top: 20px;
   font-size: 10px;
@@ -736,7 +735,8 @@ input:valid + .placeholder {
   border-radius: 3px;
 
   outline: none;
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .custom-field .placeholder {
@@ -746,6 +746,7 @@ input:valid + .placeholder {
   transform: translateY(-50%);
   color: #d3d3d3;
   transition: top 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+  font-size: 13px;
 }
 
 .custom-field input:valid + .placeholder,
@@ -810,9 +811,25 @@ span .placeholder:invalid {
   height: calc(2.1em + 0.75rem + 2px) !important;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media only screen and (min-device-width: 300px) and (max-device-width: 1080px) {
   .font10 {
     font-size: 10px;
+  }
+
+  .mb-custom {
+    margin-bottom: 9rem;
+  }
+
+  .btn_fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    padding: 20px;
+    width: calc(100% - -15px);
+    transform: translate(-2%);
+    margin-bottom: 8.5vh;
   }
 
   .icon-user {
