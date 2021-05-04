@@ -24,7 +24,7 @@
       class="card text-white justify-content-center"
       v-if="contentFor === 'home'"
     >
-      <img class="img-Hero" src="../../assets/Header-pz.svg" alt="Card image" />
+      <img class="img-Hero" src="../../assets/Header.png" alt="Card image" />
       <div class="card-img-overlay d-flex align-items-center">
         <div class="col mb-4">
           <h1
@@ -34,7 +34,7 @@
             Hai, {{ points.outlet_name }}
           </h1>
           <p class="mb-0 font12px font-weight-normal" data-aos="fade-down">
-            Ini Jumlah Poin dan Rebate anda.
+            Berikut jumlah poin perolehan anda.
           </p>
           <div class="d-flex mt-4" data-aos="zoom-in">
             <img class="img-logo" src="../../assets/poin-logo.png" alt="" />
@@ -66,16 +66,15 @@
       </div>
     </div>
     <div v-if="contentFor === 'Login'">
-      <div class="row d-flex">
+      <div class="row d-flex mt-2">
         <div class="col-md-8 col-7 align-self-center">
           <h1 class="font-26 font-19 font-weight-bold">Hi, Selamat Datang</h1>
-          <p class="font12px">Pantau Poin Anda Sekarang</p>
+          <p class="font12px">Di Progam Distributor</p>
         </div>
-        <div class="col-md-4 col-5 p-0 m-0">
+        <div class="col-md-4 col-5 p-0 m-0 d-flex">
           <img
-            src="../../assets/hero-login.png"
-            class="img-fluid"
-            style="max-width: 100"
+            src="../../assets/pz.png"
+            class="img-fluid w-logo-responsive2 ml-auto mr-3 align-self-center"
           />
         </div>
       </div>

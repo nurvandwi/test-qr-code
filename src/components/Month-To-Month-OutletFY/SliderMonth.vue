@@ -1,5 +1,7 @@
 <template>
-  <div class="row btn-quarter mx-0 p-0 d-flex justify-content-between">
+  <div
+    class="row btn-quarter mx-0 p-0 d-flex justify-content-between margin-top"
+  >
     <div class="content mx-0 my-0">
       <table class="table mb-0 mx-0">
         <thead>
@@ -133,6 +135,10 @@ export default {
 @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
   .mb-custom {
     margin-bottom: 13rem;
+  }
+
+  .margin-top {
+    margin-top: -1rem;
   }
 
   .width-max-content {

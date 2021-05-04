@@ -21,11 +21,19 @@
         </h3>
       </div>
 
+      <div
+        class="alert alert-danger font12-mobile font14-desktop mt-2"
+        role="alert"
+      >
+        <b> Catatan:</b> <br />
+        Untuk data yang sudah terisi mohon dikonfirmasi ulang, bila tidak maka
+        data dianggap valid
+      </div>
       <h4 class="mt-4 text-left font16 font-weight-bold mb-0">
-        Input Data Outlet
+        Input Data Distributor
       </h4>
       <p class="p-0 my-0 text-left font12">
-        Nomor EKTP & Nomor Handphone/WA wajib diisi
+        Input Data Penerimaan Hadiah Untuk Distributor
       </p>
       <form @submit="formSubmit">
         <!-- Modal -->
@@ -81,7 +89,7 @@
                 class="col-md-12 col-12"
                 v-model="data_outlet.data.nama_konsumen"
               />
-              <span class="placeholder">Nama Sesuai KTP</span>
+              <span class="placeholder">Nama Penerima Hadiah</span>
             </label>
           </div>
 
@@ -118,7 +126,7 @@
                   data_outlet.data.no_ektp == ''
                 "
               />
-              <label class="form-check-label" for="NPWP">NPWP</label>
+              <label class="form-check-label" for="NPWP">NPWP BADAN</label>
             </div>
 
             <label
@@ -700,7 +708,7 @@ input:valid + .placeholder {
 }
 
 .theme-color {
-  background-color: #4e37b2;
+  background-color: #ed1c24;
 }
 
 .fileinput {
@@ -810,6 +818,9 @@ span .placeholder:invalid {
 .form-control {
   height: calc(2.1em + 0.75rem + 2px) !important;
 }
+.font14-desktop {
+  font-size: 16px;
+}
 
 @media only screen and (min-device-width: 300px) and (max-device-width: 1080px) {
   .font10 {
@@ -837,6 +848,9 @@ span .placeholder:invalid {
   }
 
   .font12 {
+    font-size: 12px;
+  }
+  .font12-mobile {
     font-size: 12px;
   }
 

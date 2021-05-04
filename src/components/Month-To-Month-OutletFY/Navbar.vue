@@ -1,35 +1,25 @@
 <template>
   <div>
-    <div class="bg-blue bordered">
-      <div class="card-body d-flex">
-        <img
-          src="../../assets/COG-LOGO-Joss_Retail_salesman.png"
-          height="80"
-          alt=""
-          srcset=""
-        />
-        <div class="align-self-center mx-3">
-          <p class="card-text text-white m-0 font30">{{ outlet_id }}</p>
-          <p class="card-text text-white font14">
-            {{ distributor_name }}
-          </p>
-        </div>
-      </div>
-      <div class="border bg-yellow py-2">
-        <div class="d-flex justify-content-center">
-          <img src="../../assets/coins3.svg" style="width: 20px" alt="" />
-          <p
-            class="px-4 m-0 font18 align-self-center font-weight-bold text-dark"
+    <div class="card text-white justify-content-center">
+      <img class="img-Hero" src="../../assets/Header.png" alt="Card image" />
+      <div class="card-img-overlay d-flex align-items-center">
+        <div class="col mb-4">
+          <h1
+            class="card-title font18 font-weight-bolder mb-0"
+            data-aos="fade-down"
           >
-            POIN TERSEDIA
+            Hai, {{ distributor_name }}
+          </h1>
+          <p class="mb-0 font12px font-weight-normal" data-aos="fade-down">
+            Berikut jumlah poin perolehan anda.
           </p>
-          <p class="border-right m-0 align-self-center"></p>
-          <div class="d-flex">
-            <p
-              class="m-0 align-self-center px-2 font-weight-bold text-dark font20"
+          <div class="d-flex mt-4" data-aos="zoom-in">
+            <img class="img-logo" src="../../assets/poin-logo2.png" alt="" />
+            <h1
+              class="card-title align-self-center font18 font-weight-bolder mb-0 px-2"
             >
-              {{ poin_tersedia }}
-            </p>
+              {{ poin_tersedia }} Poin
+            </h1>
           </div>
         </div>
       </div>
@@ -50,6 +40,10 @@ export default {
 </script>
 
 <style scoped>
+.card {
+  background-color: transparent !important;
+  border: none !important;
+}
 .bg-blue {
   background-color: #013072;
 }
