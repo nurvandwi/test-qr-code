@@ -2,105 +2,6 @@
   <div class="nav-bar">
     <ul class="px-0">
       <li>
-        <button type="button" class="btn p-0" v-on:click="push()">
-          <router-link
-            v-bind:to="'/Home/' + `${$route.params.outlet_id}`"
-            style="color: #fff"
-            class="mx-auto font18"
-          >
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                width="24"
-                height="24"
-                viewBox="0 0 172 172"
-                style="fill: #000000"
-              >
-                <g
-                  fill="none"
-                  fill-rule="nonzero"
-                  stroke="none"
-                  stroke-width="1"
-                  stroke-linecap="butt"
-                  stroke-linejoin="miter"
-                  stroke-miterlimit="10"
-                  stroke-dasharray
-                  stroke-dashoffset="0"
-                  font-family="none"
-                  font-weight="none"
-                  font-size="none"
-                  text-anchor="none"
-                  style="mix-blend-mode: normal"
-                >
-                  <path d="M0,172v-172h172v172z" fill="none" />
-                  <g fill="#000000">
-                    <path
-                      d="M85.82503,14.33333c-1.14611,0.03914 -2.24966,0.44378 -3.14941,1.15479l-50.92953,40.12353c-6.46397,5.09418 -10.24609,12.87841 -10.24609,21.10807v68.40527c0,4.88621 4.07212,8.95833 8.95833,8.95833h35.83333c4.88621,0 8.95833,-4.07212 8.95833,-8.95833v-35.83333c0,-1.05724 0.73442,-1.79167 1.79167,-1.79167h17.91667c1.05724,0 1.79167,0.73442 1.79167,1.79167v35.83333c0,4.88621 4.07212,8.95833 8.95833,8.95833h35.83333c4.88621,0 8.95833,-4.07212 8.95833,-8.95833v-68.40527c0,-8.22966 -3.78213,-16.01389 -10.24609,-21.10807l-50.92953,-40.12353c-0.99396,-0.7852 -2.23327,-1.19417 -3.49935,-1.15479zM86,26.55306l47.60514,37.50602c3.8847,3.06149 6.14486,7.71798 6.14486,12.66064v66.61361h-32.25v-34.04167c0,-6.86192 -5.67974,-12.54167 -12.54167,-12.54167h-17.91667c-6.86192,0 -12.54167,5.67974 -12.54167,12.54167v34.04167h-32.25v-66.61361c0,-4.94267 2.26016,-9.59916 6.14486,-12.66064z"
-                    />
-                  </g>
-                </g>
-              </svg>
-              <span class="menu-navigation">Home</span>
-            </div>
-          </router-link>
-        </button>
-      </li>
-
-      <li>
-        <router-link
-          v-bind:to="'/categories/' + `${$route.params.outlet_id}`"
-          style="color: #fff"
-          class="mx-auto font18"
-        >
-          <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              width="32"
-              height="32"
-              viewBox="0 0 172 172"
-              style="fill: #000000"
-            >
-              <g
-                fill="none"
-                fill-rule="nonzero"
-                stroke="none"
-                stroke-width="1"
-                stroke-linecap="butt"
-                stroke-linejoin="miter"
-                stroke-miterlimit="10"
-                stroke-dasharray
-                stroke-dashoffset="0"
-                font-family="none"
-                font-weight="none"
-                font-size="none"
-                text-anchor="none"
-                style="mix-blend-mode: normal"
-              >
-                <path d="M0,172v-172h172v172z" fill="none" />
-                <g fill="#000000">
-                  <path
-                    d="M64.5,21.5c-8.84171,0 -16.125,7.28329 -16.125,16.125c0,2.08737 1.49955,3.53668 2.23608,5.375h-29.11108v5.375v32.25h5.375v69.875h118.25v-69.875h5.375v-37.625h-29.11109c0.73654,-1.83832 2.23609,-3.28763 2.23609,-5.375c0,-8.84171 -7.28329,-16.125 -16.125,-16.125c-9.40036,0 -15.74705,7.08125 -19.93579,13.03857c-1.00163,1.42454 -0.77925,1.48925 -1.56421,2.82398c-0.78496,-1.33472 -0.56258,-1.39943 -1.56421,-2.82398c-4.18874,-5.95733 -10.53543,-13.03857 -19.93579,-13.03857zM64.5,32.25c3.36527,0 7.76858,3.66875 11.13843,8.46143c0.79566,1.1316 0.63477,1.21187 1.27026,2.28857h-12.40869c-3.03704,0 -5.375,-2.33796 -5.375,-5.375c0,-3.03704 2.33796,-5.375 5.375,-5.375zM107.5,32.25c3.03704,0 5.375,2.33796 5.375,5.375c0,3.03704 -2.33796,5.375 -5.375,5.375h-12.40869c0.6355,-1.0767 0.47461,-1.15697 1.27026,-2.28857c3.36985,-4.79267 7.77316,-8.46143 11.13843,-8.46143zM32.25,53.75h32.25h13.51099h2.61401v16.125h-48.375zM91.375,53.75h2.61401h13.51099h32.25v16.125h-48.375zM37.625,80.625h43v59.125h-43zM91.375,80.625h43v59.125h-43z"
-                  />
-                </g>
-              </g>
-            </svg>
-            <span class="menu-navigation">Reward</span>
-          </div>
-        </router-link>
-      </li>
-      <li>
-        <a :href="linkWa" target="_blank">
-          <div class="whatsapp-icon">
-            <img class="size-wa" src="../../assets/icon-wa v-2.png" />
-            <span class="menu-navigation"></span>
-          </div>
-        </a>
-      </li>
-      <li>
         <router-link
           :to="{
             path: '/MonthToYear/1' + `/${$route.params.outlet_id}`,
@@ -146,6 +47,105 @@
           </div>
         </router-link>
       </li>
+      <li>
+        <button type="button" class="btn p-0" v-on:click="push()">
+          <router-link
+            v-bind:to="'/Home/' + `${$route.params.outlet_id}`"
+            style="color: #fff"
+            class="mx-auto font18"
+          >
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="24"
+                height="24"
+                viewBox="0 0 172 172"
+                style="fill: #000000"
+              >
+                <g
+                  fill="none"
+                  fill-rule="nonzero"
+                  stroke="none"
+                  stroke-width="1"
+                  stroke-linecap="butt"
+                  stroke-linejoin="miter"
+                  stroke-miterlimit="10"
+                  stroke-dasharray
+                  stroke-dashoffset="0"
+                  font-family="none"
+                  font-weight="none"
+                  font-size="none"
+                  text-anchor="none"
+                  style="mix-blend-mode: normal"
+                >
+                  <path d="M0,172v-172h172v172z" fill="none" />
+                  <g fill="#000000">
+                    <path
+                      d="M85.82503,14.33333c-1.14611,0.03914 -2.24966,0.44378 -3.14941,1.15479l-50.92953,40.12353c-6.46397,5.09418 -10.24609,12.87841 -10.24609,21.10807v68.40527c0,4.88621 4.07212,8.95833 8.95833,8.95833h35.83333c4.88621,0 8.95833,-4.07212 8.95833,-8.95833v-35.83333c0,-1.05724 0.73442,-1.79167 1.79167,-1.79167h17.91667c1.05724,0 1.79167,0.73442 1.79167,1.79167v35.83333c0,4.88621 4.07212,8.95833 8.95833,8.95833h35.83333c4.88621,0 8.95833,-4.07212 8.95833,-8.95833v-68.40527c0,-8.22966 -3.78213,-16.01389 -10.24609,-21.10807l-50.92953,-40.12353c-0.99396,-0.7852 -2.23327,-1.19417 -3.49935,-1.15479zM86,26.55306l47.60514,37.50602c3.8847,3.06149 6.14486,7.71798 6.14486,12.66064v66.61361h-32.25v-34.04167c0,-6.86192 -5.67974,-12.54167 -12.54167,-12.54167h-17.91667c-6.86192,0 -12.54167,5.67974 -12.54167,12.54167v34.04167h-32.25v-66.61361c0,-4.94267 2.26016,-9.59916 6.14486,-12.66064z"
+                    />
+                  </g>
+                </g>
+              </svg>
+              <span class="menu-navigation">Aktivitas</span>
+            </div>
+          </router-link>
+        </button>
+      </li>
+      <li>
+        <a :href="linkWa" target="_blank">
+          <div class="whatsapp-icon">
+            <img class="size-wa" src="../../assets/icon-wa v-2.png" />
+            <span class="menu-navigation"></span>
+          </div>
+        </a>
+      </li>
+      <li class="disabled">
+        <router-link
+          v-bind:to="'/categories/' + `${$route.params.outlet_id}`"
+          style="color: #fff"
+          class="mx-auto font18"
+        >
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="32"
+              height="32"
+              viewBox="0 0 172 172"
+              style="fill: #000000"
+            >
+              <g
+                fill="none"
+                fill-rule="nonzero"
+                stroke="none"
+                stroke-width="1"
+                stroke-linecap="butt"
+                stroke-linejoin="miter"
+                stroke-miterlimit="10"
+                stroke-dasharray
+                stroke-dashoffset="0"
+                font-family="none"
+                font-weight="none"
+                font-size="none"
+                text-anchor="none"
+                style="mix-blend-mode: normal"
+              >
+                <path d="M0,172v-172h172v172z" fill="none" />
+                <g fill="#000000">
+                  <path
+                    d="M64.5,21.5c-8.84171,0 -16.125,7.28329 -16.125,16.125c0,2.08737 1.49955,3.53668 2.23608,5.375h-29.11108v5.375v32.25h5.375v69.875h118.25v-69.875h5.375v-37.625h-29.11109c0.73654,-1.83832 2.23609,-3.28763 2.23609,-5.375c0,-8.84171 -7.28329,-16.125 -16.125,-16.125c-9.40036,0 -15.74705,7.08125 -19.93579,13.03857c-1.00163,1.42454 -0.77925,1.48925 -1.56421,2.82398c-0.78496,-1.33472 -0.56258,-1.39943 -1.56421,-2.82398c-4.18874,-5.95733 -10.53543,-13.03857 -19.93579,-13.03857zM64.5,32.25c3.36527,0 7.76858,3.66875 11.13843,8.46143c0.79566,1.1316 0.63477,1.21187 1.27026,2.28857h-12.40869c-3.03704,0 -5.375,-2.33796 -5.375,-5.375c0,-3.03704 2.33796,-5.375 5.375,-5.375zM107.5,32.25c3.03704,0 5.375,2.33796 5.375,5.375c0,3.03704 -2.33796,5.375 -5.375,5.375h-12.40869c0.6355,-1.0767 0.47461,-1.15697 1.27026,-2.28857c3.36985,-4.79267 7.77316,-8.46143 11.13843,-8.46143zM32.25,53.75h32.25h13.51099h2.61401v16.125h-48.375zM91.375,53.75h2.61401h13.51099h32.25v16.125h-48.375zM37.625,80.625h43v59.125h-43zM91.375,80.625h43v59.125h-43z"
+                  />
+                </g>
+              </g>
+            </svg>
+            <span class="menu-navigation">Reward</span>
+          </div>
+        </router-link>
+      </li>
+
       <li>
         <button type="button" class="btn p-0" v-on:click="logout()">
           <div>
@@ -243,6 +243,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 #nav {
