@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mt-5" v-if="contentFor === 'home'">
+    <div class="mt-5 mb-custom" v-if="contentFor === 'home'">
       <h3 class="font14 font-weight-bold mb-0 ml-4">Data Kegiatan</h3>
       <p class="font-12 ml-4">Lengkapi data dibawah ini.</p>
       <div class="col-12">
@@ -16,7 +16,7 @@
                 class="font14 formh2 caption4 p-0 m-0 font-weight-bold"
                 v-bind:class="status == 0 ? 'text-danger' : 'text-dark'"
               >
-                Data E-KTP & Data Bank
+                Data E-KTP
               </h5>
               <p
                 v-if="status == 0"
@@ -167,6 +167,9 @@ export default {
 }
 
 @media screen and (max-width: 1000px) {
+  .mb-custom{
+    margin-bottom: 6rem;
+  }
   .imagecustom {
     width: 20%;
   }

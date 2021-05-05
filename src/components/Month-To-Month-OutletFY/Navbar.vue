@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="card text-white justify-content-center">
-      <img class="img-Hero" src="../../assets/Header.png" alt="Card image" />
+      <img class="img-Hero" src="../../assets/Header-Sales.png" alt="Card image" />
       <div class="card-img-overlay d-flex align-items-center">
         <div class="col mb-4">
           <h1
@@ -81,7 +81,13 @@ export default {
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
 }
+.img-logo {
+  width: 5%;
+}
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
+  .img-logo {
+    width: 8%;
+  }
 }
 </style>

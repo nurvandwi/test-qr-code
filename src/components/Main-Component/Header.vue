@@ -24,7 +24,7 @@
       class="card text-white justify-content-center"
       v-if="contentFor === 'home'"
     >
-      <img class="img-Hero" src="../../assets/Header.png" alt="Card image" />
+      <img class="img-Hero" src="../../assets/Header-Sales.png" alt="Card image" />
       <div class="card-img-overlay d-flex align-items-center">
         <div class="col mb-4">
           <h1
@@ -37,7 +37,7 @@
             Berikut jumlah poin perolehan anda.
           </p>
           <div class="d-flex mt-4" data-aos="zoom-in">
-            <img class="img-logo" src="../../assets/poin-logo.png" alt="" />
+            <img class="img-logo" src="../../assets/poin-logo2.png" alt="" />
             <p class="font18 align-self-center mb-0 px-2">
               {{ points.Poin_text }} Poin
             </p>
@@ -69,7 +69,7 @@
       <div class="row d-flex mt-2">
         <div class="col-md-8 col-7 align-self-center">
           <h1 class="font-26 font-19 font-weight-bold">Hi, Selamat Datang</h1>
-          <p class="font12px">Di Progam Distributor</p>
+          <p class="font12px">Di Progam Loyalti Salesman</p>
         </div>
         <div class="col-md-4 col-5 p-0 m-0 d-flex">
           <img

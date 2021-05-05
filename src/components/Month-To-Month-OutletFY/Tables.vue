@@ -37,9 +37,9 @@
           </div>
           <hr />
           <div class="row text-center pt-2">
-            <div class="col" style="border-right: 1px solid #d3d3d3">
-              <h2 class="font11 m-0 text-gray font-custom">
-                SISA POIN TERSEDIA
+            <div class="col d-flex align-self-center text-center mx-auto justify-content-center" style="border-right: 1px solid #d3d3d3">
+              <h2 class="font12 m-0 text-gray font-custom text-center">
+              POIN TERSEDIA
               </h2>
             </div>
             <div class="col">

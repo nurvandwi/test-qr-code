@@ -13,6 +13,22 @@ body {
 .black {
   background-color: black;
 }
+.w-logo-responsive{
+  width: 15rem;
+}
+.w-logo-responsive2{
+  width: 75% !important;
+  height: 60% !important;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .w-logo-responsive2{
+    width: 60% !important;
+    height: 70% !important;
+  }
+  .w-logo-responsive{
+    width: 12rem;
+  }
+}
 
 /* @media screen and (max-width: 1000px) {
   body {

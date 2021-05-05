@@ -3,7 +3,6 @@
     <Header :contentFor="'home'" :points="points" />
     <PromoBanner :slider="Slider" />
     <ListPromosi :contentFor="'home'" :outletData="OutletData" />
-    <ListTransaksi class="mb-5 pb-5" />
   </div>
 </template>
 
@@ -11,7 +10,6 @@
 import axios from "axios";
 import Header from "../components/Main-Component/Header.vue";
 import PromoBanner from "../components/Main-Component/PromoBanner.vue";
-import ListTransaksi from "../components/Main-Component/ListTransaksi";
 import ListPromosi from "../components/Main-Component/ListPromosi.vue";
 
 export default {
@@ -19,7 +17,6 @@ export default {
     Header,
     PromoBanner,
     ListPromosi,
-    ListTransaksi,
   },
   data() {
     return {
