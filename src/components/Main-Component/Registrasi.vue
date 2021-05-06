@@ -78,7 +78,7 @@
         </div>
         <input type="hidden" v-model="data_outlet.data.outlet_id" />
         <input type="hidden" v-model="data_outlet.data.outlet_name" />
-        <div class="form-row">
+        <div class="form-row" style="margin-bottom: 10rem">
           <div class="form-group mb-0 col-md-12 col-12 px-0 mb-0">
             <label
               class="custom-field one col-md-12 col-12 px-0 d-flex justify-content-center pb-0 mb-0"
