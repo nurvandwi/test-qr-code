@@ -178,6 +178,7 @@
         <div class="btn_fixed">
           <button
             type="submit"
+            :disabled="data_outlet.data.valid === 'Yes'"
             class="btn btn-lg col-md-12 col-12 mt-2 text-white py-2 theme-color font-button px-0"
             style="border-radius: 60px"
           >

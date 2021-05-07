@@ -121,7 +121,7 @@
 /* eslint-disable */
 
 export default {
-  props: ["contentFor", "outletData"],
+  props: ["contentFor", "outletData", "status"],
   data() {
     return {
       currenttime: "",
@@ -167,7 +167,7 @@ export default {
 }
 
 @media screen and (max-width: 1000px) {
-  .mb-custom{
+  .mb-custom {
     margin-bottom: 6rem;
   }
   .imagecustom {
