@@ -77,8 +77,8 @@
           </div>
         </div>
         <input type="hidden" v-model="data_outlet.data.outlet_id" />
-        <input type="hidden" v-model="data_outlet.data.outlet_name" />
-        <div class="form-row">
+        <!-- <input type="hidden" v-model="data_outlet.data.outlet_name" /> -->
+        <div class="form-row" style="margin-bottom: 10rem">
           <div class="form-group mb-0 col-md-12 col-12 px-0 mb-0">
             <label
               class="custom-field one col-md-12 col-12 px-0 d-flex justify-content-center pb-0 mb-0"
@@ -167,21 +167,29 @@
                 type="number"
                 required
                 class="col-md-12 col-12"
-                v-model="data_outlet.data.telepon2"
+                v-model="data_outlet.data.no_wa"
               />
-              <span class="placeholder"
-                >No.HP / no. WA harus sama dengan nomor e-Wallet</span
-              >
+              <span class="placeholder">No.HP / no. WA harus sama </span>
             </label>
           </div>
         </div>
         <div class="btn_fixed">
           <button
             type="submit"
+            v-if="data_outlet.data.valid === 'No'"
             class="btn btn-lg col-md-12 col-12 mt-2 text-white py-2 theme-color font-button px-0"
             style="border-radius: 60px"
           >
             Kirim
+          </button>
+          <button
+            type="submit"
+            v-if="data_outlet.data.valid === 'Yes'"
+            :disabled="data_outlet.data.valid === 'Yes'"
+            class="btn btn-lg col-md-12 col-12 mt-2 text-white py-2 theme-color font-button px-0"
+            style="border-radius: 60px"
+          >
+            Data sudah dikonfirmasi
           </button>
         </div>
       </form>
@@ -303,21 +311,21 @@ export default {
       formData.append("outlet_id", this.data_outlet.data.outlet_id);
       formData.append("no_ektp", this.data_outlet.data.no_ektp);
       formData.append("no_npwp", this.data_outlet.data.no_npwp);
+      formData.append("no_wa", this.data_outlet.data.no_wa);
       formData.append("nama_konsumen", this.data_outlet.data.nama_konsumen);
-
-      formData.append("telepon2", this.data_outlet.data.telepon2);
-      formData.append("nama_rekening", this.data_outlet.data.nama_rekening);
-      formData.append("nomor_rekening", this.data_outlet.data.nomor_rekening);
 
       this.errors = [];
 
       if (!this.data_outlet.data.no_ektp) {
         this.errors.push("no eKTP");
       }
+      if (!this.data_outlet.data.no_npwp) {
+        this.errors.push("no eKTP");
+      }
       if (!this.data_outlet.data.nama_konsumen) {
         this.errors.push("Nama Pemilik");
       }
-      if (!this.data_outlet.data.telepon2) {
+      if (!this.data_outlet.data.no_wa) {
         this.errors.push("No Hp");
       }
 
@@ -326,20 +334,21 @@ export default {
         this.data_outlet.data.outlet_id &&
         (this.data_outlet.data.no_ektp || this.data_outlet.data.no_npwp) &&
         this.data_outlet.data.nama_konsumen &&
-        this.data_outlet.data.telepon2
+        this.data_outlet.data.no_wa
       )
-        axios
-          .post(`${process.env.VUE_APP_URL}update-outlet-ms`, formData, {
-            headers: {
-              token: localStorage.token,
-            },
-          })
-          .then((res) => {
-            console.log(res.data);
-            this.$router.push(`/Home/${this.$route.params.outlet_id}`);
-            window.location.reload();
-          })
-          .catch((err) => console.log(err));
+        console.log(formData, "data");
+      axios
+        .post(`${process.env.VUE_APP_URL}update-outlet-ms`, formData, {
+          headers: {
+            token: localStorage.token,
+          },
+        })
+        .then((res) => {
+          console.log(res.data, "ini itu", formData);
+          // this.$router.push(`/Home/${this.$route.params.outlet_id}`);
+          // window.location.reload();
+        })
+        .catch((err) => console.log(err));
     },
   },
   mounted() {
