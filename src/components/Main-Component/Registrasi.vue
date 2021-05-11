@@ -306,13 +306,15 @@ export default {
     },
 
     formSubmit(e) {
-      let formData = new FormData();
 
-      formData.append("outlet_id", this.data_outlet.data.outlet_id);
-      formData.append("no_ektp", this.data_outlet.data.no_ektp);
-      formData.append("no_npwp", this.data_outlet.data.no_npwp);
-      formData.append("no_wa", this.data_outlet.data.no_wa);
-      formData.append("nama_konsumen", this.data_outlet.data.nama_konsumen);
+      let newData={
+        outlet_id:this.data_outlet.data.outlet_id,
+        no_ektp:this.data_outlet.data.no_ektp,
+        no_npwp: this.data_outlet.data.no_npwp,
+        no_wa:this.data_outlet.data.no_wa,
+        nama_konsumen:this.data_outlet.data.nama_konsumen
+      }
+
 
       this.errors = [];
 
@@ -336,17 +338,17 @@ export default {
         this.data_outlet.data.nama_konsumen &&
         this.data_outlet.data.no_wa
       )
-        console.log(formData, "data");
+        // console.log(newData, "data");
       axios
-        .post(`${process.env.VUE_APP_URL}update-outlet-ms`, formData, {
+        .post(`${process.env.VUE_APP_URL}update-outlet-ms`, newData, {
           headers: {
             token: localStorage.token,
           },
         })
-        .then((res) => {
-          console.log(res.data, "ini itu", formData);
-          // this.$router.push(`/Home/${this.$route.params.outlet_id}`);
-          // window.location.reload();
+        .then(() => {
+          // console.log(res.data, "ini itu", newData);
+          this.$router.push(`/Home/${this.$route.params.outlet_id}`);
+          window.location.reload();
         })
         .catch((err) => console.log(err));
     },
