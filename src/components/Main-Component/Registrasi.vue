@@ -306,16 +306,13 @@ export default {
     },
 
     formSubmit(e) {
-
-      let newData={
-        outlet_id:this.data_outlet.data.outlet_id,
-        no_ektp:this.data_outlet.data.no_ektp,
+      let newData = {
+        outlet_id: this.data_outlet.data.outlet_id,
+        no_ektp: this.data_outlet.data.no_ektp,
         no_npwp: this.data_outlet.data.no_npwp,
-        no_wa:this.data_outlet.data.no_wa,
-        nama_konsumen:this.data_outlet.data.nama_konsumen
-      }
-
-
+        no_wa: this.data_outlet.data.no_wa,
+        nama_konsumen: this.data_outlet.data.nama_konsumen,
+      };
       this.errors = [];
 
       if (!this.data_outlet.data.no_ektp) {
@@ -339,18 +336,18 @@ export default {
         this.data_outlet.data.no_wa
       )
         // console.log(newData, "data");
-      axios
-        .post(`${process.env.VUE_APP_URL}update-outlet-ms`, newData, {
-          headers: {
-            token: localStorage.token,
-          },
-        })
-        .then(() => {
-          // console.log(res.data, "ini itu", newData);
-          this.$router.push(`/Home/${this.$route.params.outlet_id}`);
-          window.location.reload();
-        })
-        .catch((err) => console.log(err));
+        axios
+          .post(`${process.env.VUE_APP_URL}update-outlet-ms`, newData, {
+            headers: {
+              token: localStorage.token,
+            },
+          })
+          .then(() => {
+            // console.log(res.data, "ini itu", newData);
+            this.$router.push(`/Home/${this.$route.params.outlet_id}`);
+            window.location.reload();
+          })
+          .catch((err) => console.log(err));
     },
   },
   mounted() {
