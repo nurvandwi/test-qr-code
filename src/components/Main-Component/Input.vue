@@ -79,7 +79,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body"><p v-html="toc"></p></div>
+              <div class="modal-body"><div v-html="toc"></div></div>
               <div class="modal-footer">
                 <button type="button" class="btn-cancel" data-dismiss="modal">
                   Close
@@ -297,6 +297,28 @@ form {
 
   form {
     max-width: 100%;
+  }
+
+  .font10-mobile {
+    font-size: 10px;
+  }
+  .font12-mobile {
+    font-size: 12px;
+  }
+  .font14-mobile {
+    font-size: 14px;
+  }
+  .font15-mobile {
+    font-size: 15px;
+  }
+  .font16-mobile {
+    font-size: 16px;
+  }
+  .font18-mobile {
+    font-size: 16px;
+  }
+  .font10-mobile {
+    font-size: 11px;
   }
 }
 </style>
