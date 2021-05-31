@@ -125,7 +125,7 @@ export default {
     },
     getInfo() {
       axios
-        .get(`https://www.inosis.biz/api_pzc_dist_2021/initial.php`)
+        .get(`https://www.inosis.biz/api_pzc_sales_2021/initial.php`)
         .then((response) => {
           this.wa = response.data.no_whatapps;
           this.toc = response.data.toc;
