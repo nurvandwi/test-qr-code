@@ -27,7 +27,7 @@ import TransactionEwallet from "../pages/TransactionEwallet.vue";
 import TransactionPulsa from "../pages/TransactionPulsa.vue";
 import MonthToYear from "../pages/MonthToYear.vue";
 import PromoDetails from "../pages/PromoDetails.vue";
-
+import VoucherAvailable from "../pages/VoucherAvailable.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -207,6 +207,12 @@ const routes = [
     path: "/PromoDetails/:outlet_id/:index",
     component: PromoDetails,
     name: "PromoDetails",
+    props: true,
+  },
+  {
+    path: "/voucheravailable",
+    component: VoucherAvailable,
+    name: "voucheravailable",
     props: true,
   },
 ];
