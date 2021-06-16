@@ -1,5 +1,5 @@
 <template>
-  <div class="card mt-2 p-2" style="max-width: 330px">
+  <div class="card mt-2 p-3 mx-auto" style="max-width: 360px">
     <div class="row no-gutters">
       <div class="col-3">
         <img
