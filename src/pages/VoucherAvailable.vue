@@ -1,37 +1,20 @@
 <template>
-  <div class="container">
+  <div>
     <Header :title="'Voucher Cashback'" />
-    <div class="mb-custom">
-      <CardVoucher
-        :title="'Voucher Cashback @Rp.100.000'"
-        :subtitle="'Periode: Januari 2021'"
-      />
-      <CardVoucher
-        :title="'Voucher Cashback @Rp.50.000'"
-        :subtitle="'Periode: Januari 2021'"
-      />
-      <CardVoucher
-        :title="'Voucher Cashback @Rp.25.000'"
-        :subtitle="'Periode: Januari 2021'"
-      />
-      <CardVoucher
-        :title="'Voucher Cashback @Rp.100.000'"
-        :subtitle="'Periode: Januari 2021'"
-      />
-    </div>
+    <Demo class="mt-custom" />
   </div>
 </template>
 
 <script>
 import Header from "../components/Catalog/Header.vue";
-import CardVoucher from "../components/Main-Component/CardVoucher.vue";
+import Demo from "../components/Main-Component/Demo.vue";
 export default {
-  components: { CardVoucher, Header },
+  components: { Header, Demo },
 };
 </script>
 
 <style scoped>
-.mb-custom {
+.mt-custom {
   margin-top: 5rem;
 }
 /deep/ .backtheme {
