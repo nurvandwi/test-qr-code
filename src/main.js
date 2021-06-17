@@ -11,6 +11,9 @@ import "aos/dist/aos.css";
 import ImageUploader from "vue-image-upload-resize";
 import { Tabs, Tab } from "vue-tabs-component";
 import wb from "./registerServiceWorker";
+import VueQrcodeReader from "vue-qrcode-reader";
+
+Vue.use(VueQrcodeReader);
 Vue.prototype.$workbox = wb;
 Vue.use(VueSlickCarousel);
 Vue.component("tabs", Tabs);

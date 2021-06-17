@@ -1,13 +1,13 @@
 <template>
-  <div class="card mt-2 p-3 mx-auto" style="max-width: 360px">
+  <div class="card mt-2 p-2 mx-auto" style="max-width: 340px">
     <div class="row no-gutters">
-      <div class="col-3">
+      <div class="col-2">
         <img
-          height="50"
+          height="35"
           src="https://img.icons8.com/dotty/80/000000/starred-ticket.png"
         />
       </div>
-      <div class="col-9 align-self-center">
+      <div class="col-10 align-self-center">
         <div class="card-body p-0">
           <h5
             class="card-title"
@@ -30,5 +30,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.card {
+  border: 1.5px solid #d3d3d3 !important;
+}
 </style>

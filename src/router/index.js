@@ -28,6 +28,7 @@ import TransactionPulsa from "../pages/TransactionPulsa.vue";
 import MonthToYear from "../pages/MonthToYear.vue";
 import PromoDetails from "../pages/PromoDetails.vue";
 import VoucherAvailable from "../pages/VoucherAvailable.vue";
+import ScanQr from "../pages/ScanQr.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -210,9 +211,15 @@ const routes = [
     props: true,
   },
   {
-    path: "/voucheravailable",
+    path: "/voucherqr/:outlet_id",
     component: VoucherAvailable,
     name: "voucheravailable",
+    props: true,
+  },
+  {
+    path: "/scanqr/:outlet_id",
+    component: ScanQr,
+    name: "ScanQr",
     props: true,
   },
 ];
