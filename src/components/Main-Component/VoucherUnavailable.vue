@@ -3,7 +3,7 @@
     class="card mt-3 shadow-lg mx-auto"
     style="
       background: linear-gradient(to right, #a2a2a2, #5f5f5f);
-      max-width: 360px;
+      max-width: 342px;
       max-height: 34vh;
     "
   >
