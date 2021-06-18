@@ -7,7 +7,18 @@
         <router-link v-bind:to="'/registrasi/' + `${$route.params.outlet_id}`">
           <div
             style="background-color: white"
-            class="col shadow1 br text-left d-flex flex-row align-items-center my-3 py-2 px-3"
+            class="
+              col
+              shadow1
+              br
+              text-left
+              d-flex
+              flex-row
+              align-items-center
+              my-3
+              py-2
+              px-3
+            "
           >
             <img class="imagecustom pr-3" src="../../assets/icon-ktp.png" alt />
 
@@ -34,11 +45,59 @@
           </div>
         </router-link>
       </div>
+      <div class="col-12">
+        <div
+          style="background-color: white"
+          class="
+            col
+            shadow1
+            br
+            text-left
+            d-flex
+            flex-row
+            align-items-center
+            my-3
+            py-2
+            px-3
+          "
+        >
+          <img
+            class="imagecustom pr-3"
+            src="../../assets/icon-wa v-2.png"
+            alt
+          />
+
+          <div class="align-items-center">
+            <h5
+              class="font14 formh2 caption4 p-0 m-0 font-weight-bold text-dark"
+            >
+              Hubungi Call Center
+            </h5>
+          </div>
+          <img
+            class="iconcustom ml-auto"
+            src="https://i.imgur.com/5qg2kk5.png"
+            alt
+          />
+        </div>
+      </div>
       <div class="col-12" v-if="outletData.program_promo_sell_out !== 0">
         <a href="https://mvpromosi2021.inosis.biz/" target="_blank">
           <div
             style="background-color: white"
-            class="col shadow1 text-left br d-flex flex-row align-items-center mt-3 mb-0 py-2 px-3"
+            class="
+              col
+              shadow1
+              text-left
+              br
+              d-flex
+              flex-row
+              align-items-center
+              mt-3
+              mb-0
+              py-2
+              px-3
+            "
           >
             <img class="imagecustom pr-3" src="../../assets/Promosi.png" alt />
 
@@ -60,7 +119,19 @@
         <a href="http://mbdoutlet2021.inosis.biz/">
           <div
             style="background-color: white"
-            class="col shadow1 text-left br d-flex flex-row align-items-center mt-3 mb-0 py-2 px-3"
+            class="
+              col
+              shadow1
+              text-left
+              br
+              d-flex
+              flex-row
+              align-items-center
+              mt-3
+              mb-0
+              py-2
+              px-3
+            "
           >
             <img
               class="imagecustom pr-3"
@@ -89,13 +160,33 @@
         <router-link v-bind:to="'/MonthToYear/' + `${$route.params.outlet_id}`">
           <div
             style="background-color: white"
-            class="col shadow1 br text-left d-flex flex-row align-items-center my-3 py-2 px-3"
+            class="
+              col
+              shadow1
+              br
+              text-left
+              d-flex
+              flex-row
+              align-items-center
+              my-3
+              py-2
+              px-3
+            "
           >
             <img class="imagecustom pr-3" src="../../assets/icon-ktp.png" alt />
 
             <div class="align-items-center line-height">
               <h5
-                class="font14 py-1 formh2 caption4 p-0 m-0 text-dark font-weight-bold"
+                class="
+                  font14
+                  py-1
+                  formh2
+                  caption4
+                  p-0
+                  m-0
+                  text-dark
+                  font-weight-bold
+                "
               >
                 Outlet Retail
               </h5>
