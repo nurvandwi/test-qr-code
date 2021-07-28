@@ -14,12 +14,15 @@
         </div>
       </qrcode-stream>
     </div>
+    <button @click="sendBarcode()" type="button" class="btn btn-primary">
+      Primary
+    </button>
   </div>
 </template>
 
 <script>
 import { QrcodeStream } from "vue-qrcode-reader";
-
+import axios from "axios";
 export default {
   components: { QrcodeStream },
 
@@ -59,7 +62,7 @@ export default {
       this.turnCameraOff();
 
       await this.timeout(3000);
-      this.isValid = content.startsWith("http");
+      this.isValid = content.startsWith("");
 
       await this.timeout(2000);
       this.turnCameraOn();
@@ -78,9 +81,26 @@ export default {
         window.setTimeout(resolve, ms);
       });
     },
-    toLink() {
+    sendBarcode() {
       if (this.result) {
-        window.open(this.result);
+        let newData = {
+          result: this.result,
+        };
+        axios
+          .post(
+            `https://pzc.inosis.id/api_pzc_sales_2021/api.php/post-qr`,
+            newData,
+            {
+              headers: {
+                token: localStorage.token,
+              },
+            }
+          )
+          .then(() => {
+            // window.location.reload();
+            console.log(newData, "-------");
+          })
+          .catch((err) => console.log(err));
       }
     },
   },
