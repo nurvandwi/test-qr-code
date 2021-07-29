@@ -2,7 +2,7 @@
   <div class="container">
     <div class="border mt-5">
       <p class="decode-result text-center">
-        Last result: <b>{{ result }}</b>
+        Kode Outlet : <b>{{ result }}</b>
       </p>
       <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit">
         <div v-if="validationSuccess" class="validation-success">Success</div>
@@ -14,9 +14,11 @@
         </div>
       </qrcode-stream>
     </div>
-    <button @click="sendBarcode()" type="button" class="btn btn-primary">
-      Primary
-    </button>
+    <div class="text-center py-3">
+      <button @click="sendBarcode()" type="button" class="btn btn-primary">
+        Submit
+      </button>
+    </div>
   </div>
 </template>
 
