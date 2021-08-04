@@ -15,7 +15,12 @@
       </qrcode-stream>
     </div>
     <div class="text-center py-3">
-      <button @click="sendBarcode()" type="button" class="btn btn-primary">
+      <button
+        :disabled="!result"
+        @click="sendBarcode()"
+        type="button"
+        class="btn btn-primary"
+      >
         Submit
       </button>
     </div>
@@ -25,6 +30,8 @@
 <script>
 import { QrcodeStream } from "vue-qrcode-reader";
 import axios from "axios";
+import Swal from "sweetalert2";
+// import router from "../router/index";
 export default {
   components: { QrcodeStream },
 
@@ -85,9 +92,8 @@ export default {
     },
     sendBarcode() {
       if (this.result) {
-        let newData = {
-          result: this.result,
-        };
+        let newData = new FormData();
+        newData.append("kode", this.result);
         axios
           .post(
             `https://pzc.inosis.id/api_pzc_sales_2021/api.php/post-qr`,
@@ -98,11 +104,30 @@ export default {
               },
             }
           )
-          .then(() => {
-            // window.location.reload();
-            console.log(newData, "-------");
+          .then((res) => {
+            if (res.data.status === 1) {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Kode berhasil dipindai",
+                showConfirmButton: false,
+                timer: 3000,
+              }).then(function () {
+                window.location.reload();
+              });
+            } else {
+              Swal.fire({
+                position: "top-end",
+                icon: "warning",
+                title: "Kode sudah dipindai ",
+                showConfirmButton: false,
+                timer: 3000,
+              }).then(function () {
+                window.location.reload();
+              });
+            }
           })
-          .catch((err) => console.log(err));
+          .catch(() => console.log());
       }
     },
   },
