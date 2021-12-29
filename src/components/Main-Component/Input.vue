@@ -26,7 +26,13 @@
         </div>
         <div class="input-div pass">
           <div
-            class="i d-flex justify-content-center height-icon align-items-center"
+            class="
+              i
+              d-flex
+              justify-content-center
+              height-icon
+              align-items-center
+            "
           >
             <img class="height-icon" src="../../assets/user-password.png" />
           </div>
@@ -125,7 +131,7 @@ export default {
     },
     getInfo() {
       axios
-        .get(`https://www.inosis.biz/api_pzc_sales_2021/initial.php`)
+        .get(`https://pzc.inosis.id/api_pzc_sales_2021/initial.php`)
         .then((response) => {
           this.wa = response.data.no_whatapps;
           this.toc = response.data.toc;
